@@ -1,0 +1,291 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= THEME ================= */
+
+/* DARK MODE (DEFAULT) */
+:root {
+  --bg: #020617;
+  --bg2: #0f172a;
+  --text: #ffffff;
+  --card: rgba(15, 23, 42, 0.75);
+  --card-hover: #1e293b;
+  --primary: #38bdf8;
+  --secondary: #94a3b8;
+}
+
+/* LIGHT MODE (PREMIUM BLUE) */
+.light {
+  --bg: #e0f2fe;
+  --bg2: #bae6fd;
+  --text: #0f172a;
+  --card: #f0f9ff;
+  --card-hover: #e0f2fe;
+  --primary: #1d4ed8;
+  --secondary: #334155;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--bg), var(--bg2));
+  color: var(--text);
+  transition: 0.3s;
+}
+
+/* ================= NAVBAR ================= */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--secondary);
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* THEME BUTTON */
+.theme-btn {
+  margin-right: 10px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  opacity: 0.85;
+}
+
+/* ================= HERO ================= */
+.hero.premium {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  background: var(--card);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+/* HEADLINE */
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero-content h1 span {
+  color: var(--primary);
+}
+
+/* TEXT */
+.hero-content p {
+  color: var(--secondary);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  margin-top: 25px;
+}
+
+.btn-primary {
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn-outline {
+  margin-left: 10px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* ================= SECTION ================= */
+.section {
+  padding: 90px 60px;
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: 30px;
+}
+
+/* ================= SERVICES ================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: var(--card-hover);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+/* ================= ABOUT ================= */
+.about-text {
+  max-width: 700px;
+  margin: auto;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+/* ================= CONTACT ================= */
+.section p {
+  color: var(--secondary);
+  margin-top: 5px;
+}
+
+/* ================= AUTH ================= */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.auth-card {
+  width: 360px;
+  padding: 40px;
+  border-radius: 16px;
+  background: var(--card);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+/* INPUT */
+.input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* PASSWORD */
+.password-box {
+  position: relative;
+}
+
+.password-box span {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+/* LINK */
+.auth-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-link a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--secondary);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    padding: 20px;
+  }
+}
