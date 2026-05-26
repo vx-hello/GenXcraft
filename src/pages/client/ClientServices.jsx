@@ -62,9 +62,11 @@ export default function ClientServices() {
   return (
     <ClientLayout title="Our Services">
       {/* HERO */}
-      <div className="services-hero">
-        <h2>What We Build for You</h2>
-        <p>Premium digital solutions tailored for startups and growing businesses.</p>
+      <div className="client-services-hero">
+        <div>
+          <h2>What We Build for You</h2>
+          <p>Premium digital solutions tailored for startups and growing businesses. Choose a service and let's build together.</p>
+        </div>
         <Link to="/client/requests">
           <button className="btn-primary">🚀 Start a Project</button>
         </Link>

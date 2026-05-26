@@ -1,50 +1,20 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import axiosInstance from "../api/axiosInstance";
+import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("devex_token"));
   const [role, setRole] = useState(localStorage.getItem("devex_role"));
-  const [loading, setLoading] = useState(false);
 
-  // Detect role by probing the API (since JWT has no role claim)
-  const detectRole = async (jwt) => {
-    try {
-      // Try client profile first
-      const res = await axiosInstance.get("/api/v1/client/profile", {
-        headers: { Authorization: `Bearer ${jwt}` },
-      });
-      if (res.status === 200) {
-        localStorage.setItem("devex_role", "CLIENT");
-        setRole("CLIENT");
-        return "CLIENT";
-      }
-    } catch (e) {
-      // 403 = not a client, try admin
-      try {
-        const res2 = await axiosInstance.get("/api/v1/admin/dashboard", {
-          headers: { Authorization: `Bearer ${jwt}` },
-        });
-        if (res2.status === 200) {
-          localStorage.setItem("devex_role", "ADMIN");
-          setRole("ADMIN");
-          return "ADMIN";
-        }
-      } catch {
-        return null;
-      }
-    }
-    return null;
-  };
-
-  const login = async (jwt) => {
+  /**
+   * Called after a successful login or register.
+   * Stores token + role returned directly from the API.
+   */
+  const login = (jwt, userRole) => {
     localStorage.setItem("devex_token", jwt);
+    localStorage.setItem("devex_role", userRole);
     setToken(jwt);
-    setLoading(true);
-    const detectedRole = await detectRole(jwt);
-    setLoading(false);
-    return detectedRole;
+    setRole(userRole);
   };
 
   const logout = () => {
@@ -58,7 +28,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ token, role, loading, login, logout, isAuthenticated }}
+      value={{ token, role, login, logout, isAuthenticated }}
     >
       {children}
     </AuthContext.Provider>

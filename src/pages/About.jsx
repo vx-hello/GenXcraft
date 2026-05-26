@@ -1,181 +1,140 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
+const FEATURES = [
+  { icon: "⚡", title: "Fast Delivery", desc: "Rapid builds using modern frameworks and CI/CD pipelines without sacrificing quality." },
+  { icon: "🎯", title: "Pixel-Perfect UI", desc: "Every interface crafted with precision for maximum usability and visual impact." },
+  { icon: "🔒", title: "Secure by Default", desc: "JWT auth, encrypted data, and industry-grade security in every project we ship." },
+  { icon: "📈", title: "Built to Scale", desc: "Architecture designed to grow from 10 users to 10 million, without rewrites." },
+  { icon: "🧩", title: "Full Stack", desc: "React frontends + Spring Boot backends + Cloud deployments — all under one roof." },
+];
+
+const VALUES = [
+  { icon: "🤝", label: "Client First", desc: "Your goals are our goals. We build what actually matters to your business." },
+  { icon: "🔬", label: "Modern Tech", desc: "We stay ahead of the curve so your products never fall behind." },
+  { icon: "🏆", label: "Quality Focus", desc: "Every line of code reviewed, every pixel perfected before delivery." },
+  { icon: "🔄", label: "Always There", desc: "Post-launch support, updates, and improvements — we don't disappear." },
+];
+
+const NUMBERS = [
+  { val: "50+", label: "Projects Shipped" },
+  { val: "98%", label: "Client Satisfaction" },
+  { val: "3yr", label: "In Business" },
+  { val: "24h", label: "Response Time" },
+];
+
 export default function About() {
   return (
     <>
       <Navbar />
 
-      <div className="section">
-
-        {/* ================= HEADER ================= */}
-        <div className="about-header">
-
+      {/* ============= HERO ============= */}
+      <section className="abt-hero">
+        <div className="abt-hero-inner">
           <span className="about-badge">ABOUT DEVEX</span>
-
           <h1>
-            Building <span>Modern</span> Digital Solutions
+            We build digital products<br />
+            <span className="abt-grad">worth bragging about.</span>
           </h1>
-
           <p>
-            Devex is a modern web development company focused on building
-            scalable, high-performance digital products for startups and
-            businesses worldwide. We combine design, technology, and strategy
-            to deliver impactful digital experiences.
+            Devex is a full-stack software studio. We partner with startups and
+            businesses to design, build, and ship products that grow fast and
+            look amazing doing it.
           </p>
-
+          <div className="abt-hero-nums">
+            {NUMBERS.map((n) => (
+              <div key={n.label} className="abt-num">
+                <span className="abt-num-val">{n.val}</span>
+                <span className="abt-num-label">{n.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* ================= MAIN SECTION ================= */}
-        <div className="about-main">
-
-          {/* ================= LEFT ================= */}
-          <div className="about-left">
-
-            <h2>We Turn Ideas Into Powerful Products</h2>
-
-            <p>
-              At Devex, we believe that technology should empower businesses,
-              not complicate them. Our team builds clean, scalable, and efficient
-              systems that deliver real-world impact and measurable results.
-            </p>
-
-            <p>
-              From intuitive frontend interfaces to secure backend systems, we
-              design and develop complete solutions that are fast, reliable,
-              and easy to maintain.
-            </p>
-
-            <p>
-              Our approach combines modern technologies, best practices, and a
-              deep understanding of business needs to deliver products that help
-              our clients grow and succeed.
-            </p>
-
-            <p>
-              Whether it's a startup MVP or a full enterprise platform, every
-              solution we build is crafted with precision, performance, and
-              scalability in mind.
-            </p>
-
+        <div className="abt-hero-visual">
+          <div className="abt-orb abt-orb-1" />
+          <div className="abt-orb abt-orb-2" />
+          <div className="abt-card-float abt-cf-1">
+            <span className="abt-cf-icon">🚀</span>
+            <div>
+              <div className="abt-cf-title">Just Shipped</div>
+              <div className="abt-cf-sub">E-Commerce Platform v3.0</div>
+            </div>
           </div>
-
-          {/* ================= RIGHT ================= */}
-          <div className="about-right">
-
-            <div className="about-box">
-              <h3>⚡ Fast Development</h3>
-              <p>
-                Rapid delivery using modern frameworks and optimized workflows
-                without compromising on quality.
-              </p>
+          <div className="abt-card-float abt-cf-2">
+            <span className="abt-cf-icon">✅</span>
+            <div>
+              <div className="abt-cf-title">99.9% Uptime</div>
+              <div className="abt-cf-sub">All systems operational</div>
             </div>
-
-            <div className="about-box">
-              <h3>🎯 Clean UI/UX</h3>
-              <p>
-                Simple, intuitive, and user-friendly interfaces that enhance
-                engagement and usability.
-              </p>
-            </div>
-
-            <div className="about-box">
-              <h3>🔒 Secure Systems</h3>
-              <p>
-                Strong security practices to ensure your data and applications
-                remain safe and reliable.
-              </p>
-            </div>
-
-            <div className="about-box">
-              <h3>📈 Scalable Architecture</h3>
-              <p>
-                Systems designed to grow with your business and handle
-                increasing traffic seamlessly.
-              </p>
-            </div>
-
           </div>
-
+          <div className="abt-card-float abt-cf-3">
+            <span className="abt-cf-icon">⭐</span>
+            <div>
+              <div className="abt-cf-title">5-Star Rating</div>
+              <div className="abt-cf-sub">From 40+ clients</div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* ================= VALUES SECTION ================= */}
-        <div className="about-values">
-
-          <div className="section-header">
-            <h2>Our Core Values</h2>
-            <p>
-              Principles that guide our work and define our approach to building
-              digital products.
-            </p>
-          </div>
-
-          <div className="values-grid">
-
-            <div className="value-card">
-              <h3>Client First</h3>
-              <p>
-                We prioritize client goals and focus on delivering real,
-                measurable value in every project.
-              </p>
-            </div>
-
-            <div className="value-card">
-              <h3>Modern Technology</h3>
-              <p>
-                Using the latest tools and frameworks to build efficient and
-                future-ready applications.
-              </p>
-            </div>
-
-            <div className="value-card">
-              <h3>Quality Focus</h3>
-              <p>
-                Attention to detail and performance ensures every product meets
-                high standards.
-              </p>
-            </div>
-
-            <div className="value-card">
-              <h3>Continuous Support</h3>
-              <p>
-                Ongoing improvements and support even after project delivery.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* ================= CTA ================= */}
-        <div className="about-cta">
-
-          <h2>Let’s Build Something Great Together</h2>
-
+      {/* ============= MISSION ============= */}
+      <section className="abt-mission">
+        <div className="abt-mission-left">
+          <div className="abt-section-tag">OUR MISSION</div>
+          <h2>Turning ideas into<br /><em>powerful products.</em></h2>
           <p>
-            Have an idea or project in mind? Let’s turn it into a powerful,
-            scalable digital solution that delivers real results.
+            We believe technology should empower, not complicate. Our team builds
+            clean, scalable systems that deliver real-world impact and measurable
+            growth.
           </p>
-
-          <div className="cta-buttons">
-
-            <Link to="/contact">
-              <button className="btn-primary">
-                Contact Us
-              </button>
-            </Link>
-
-            <Link to="/services">
-              <button className="btn-outline">
-                View Services
-              </button>
-            </Link>
-
-          </div>
-
+          <p>
+            From intuitive frontends to robust backend APIs and cloud deployments,
+            we design complete solutions that are fast, reliable, and built to last.
+          </p>
+          <Link to="/services">
+            <button className="btn-outline" style={{ marginTop: '20px' }}>Explore Services →</button>
+          </Link>
         </div>
+        <div className="abt-mission-right">
+          {FEATURES.map((f, i) => (
+            <div key={i} className="abt-feature-row">
+              <div className="abt-feature-icon">{f.icon}</div>
+              <div>
+                <div className="abt-feature-title">{f.title}</div>
+                <div className="abt-feature-desc">{f.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      </div>
+      {/* ============= VALUES ============= */}
+      <section className="abt-values-section">
+        <div className="abt-section-tag" style={{ marginBottom: 12 }}>WHAT DRIVES US</div>
+        <h2 className="abt-vals-title">Our Core Values</h2>
+        <p className="abt-vals-sub">Principles that guide every project, every decision, every day.</p>
+        <div className="abt-vals-grid">
+          {VALUES.map((v, i) => (
+            <div key={i} className="abt-val-card">
+              <div className="abt-val-icon">{v.icon}</div>
+              <h3>{v.label}</h3>
+              <p>{v.desc}</p>
+              <div className="abt-val-num">{String(i + 1).padStart(2, '0')}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ============= CTA ============= */}
+      <section className="abt-cta">
+        <div className="abt-cta-glow" />
+        <h2>Let's build something<br /><span className="abt-grad">great together.</span></h2>
+        <p>Have an idea? Let's turn it into a scalable digital product that delivers results.</p>
+        <div className="cta-buttons">
+          <Link to="/contact"><button className="btn-primary">Start a Conversation →</button></Link>
+          <Link to="/services"><button className="btn-outline">View Services</button></Link>
+        </div>
+      </section>
     </>
   );
 }

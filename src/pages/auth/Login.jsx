@@ -1,23 +1,46 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { loginUser } from "../../api/authApi";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
 
   /* ================= STATE ================= */
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  /* ================= NAVIGATION ================= */
+  /* ================= HOOKS ================= */
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   /* ================= FORM HANDLER ================= */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
 
-    // 👉 future: API call yaha hoga
-    console.log("Login submitted");
+    try {
+      const data = await loginUser(email, password);
+      // data = { token: "...", role: "ADMIN" | "CLIENT" }
+      login(data.token, data.role);
 
-    // redirect after login
-    navigate("/");
+      if (data.role === "ADMIN") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/client/dashboard");
+      }
+    } catch (err) {
+      const msg =
+        err?.response?.data?.message ||
+        err?.response?.data ||
+        "Invalid email or password. Please try again.";
+      setError(typeof msg === "string" ? msg : "Login failed.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   /* ================= TOGGLE PASSWORD ================= */
@@ -51,6 +74,9 @@ export default function Login() {
             <p>Sign in to continue to your account</p>
           </div>
 
+          {/* ERROR */}
+          {error && <div className="auth-error">{error}</div>}
+
           {/* ================= FORM ================= */}
           <form onSubmit={handleSubmit} className="auth-form">
 
@@ -61,6 +87,8 @@ export default function Login() {
                 name="email"
                 required
                 autoComplete="off"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label>Email Address</label>
             </div>
@@ -72,6 +100,8 @@ export default function Login() {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
 
               <label>Password</label>
@@ -93,18 +123,15 @@ export default function Login() {
                 <span>Remember me</span>
               </label>
 
-              <Link to="/forgot-password" className="forgot-link">
-                Forgot Password?
-              </Link>
-
             </div>
 
             {/* BUTTON */}
             <button
               type="submit"
               className="login-btn"
+              disabled={loading}
             >
-              Sign In
+              {loading ? "Signing In..." : "Sign In"}
             </button>
 
           </form>
@@ -112,7 +139,7 @@ export default function Login() {
           {/* FOOTER */}
           <div className="auth-footer">
             <p>
-              Don’t have an account?{" "}
+              Don't have an account?{" "}
               <Link to="/register">Create Account</Link>
             </p>
           </div>
@@ -123,4 +150,4 @@ export default function Login() {
 
     </div>
   );
-}
+}
