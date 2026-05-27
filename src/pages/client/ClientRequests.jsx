@@ -165,7 +165,7 @@ export default function ClientRequests() {
             </div>
             <div className="form-row">
               <div className="input-group">
-                <label>Estimated Budget (USD)</label>
+                <label>Estimated Budget (INR)</label>
                 <input
                   className="input"
                   type="number"

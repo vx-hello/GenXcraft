@@ -129,8 +129,8 @@ export default function AdminRequests() {
                   <div className="req-details-row">
                     {req.estimatedBudget && (
                       <div className="req-detail">
-                        <span>💰 Budget</span>
-                        <strong>${Number(req.estimatedBudget).toLocaleString()}</strong>
+                        <span>Budget</span>
+                        <strong>₹{Number(req.estimatedBudget).toLocaleString()}</strong>
                       </div>
                     )}
                     {req.timeline && (

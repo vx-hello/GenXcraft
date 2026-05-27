@@ -68,8 +68,7 @@ export default function ClientProjects() {
                 <div className="project-meta">
                   {p.budget && (
                     <div className="meta-item">
-                      <span>💰</span>
-                      <span>${Number(p.budget).toLocaleString()}</span>
+                      <span>₹{Number(p.budget).toLocaleString()}</span>
                     </div>
                   )}
                   {p.startDate && (

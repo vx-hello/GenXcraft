@@ -31,6 +31,10 @@ export default function ClientSupport() {
   const [success, setSuccess] = useState("");
   const [expandedId, setExpandedId] = useState(null);
 
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   const load = async () => {
     setLoading(true);
     try {
@@ -54,7 +58,7 @@ export default function ClientSupport() {
     setError("");
     try {
       await createTicket(form);
-      setSuccess("🎫 Support ticket created! We'll respond within 24 hours.");
+      setSuccess("🎫 Ticket created successfully. Our team has been notified by email.");
       setForm(emptyForm);
       setShowForm(false);
       await load();
@@ -84,7 +88,7 @@ export default function ClientSupport() {
           <div className="support-info-icon">📧</div>
           <div>
             <div className="support-info-title">Email Support</div>
-            <div className="support-info-val">support@devex.com</div>
+            <div className="support-info-val">thedevexhq@gmail.com</div>
           </div>
         </div>
         <div className="support-info-card">
@@ -98,7 +102,7 @@ export default function ClientSupport() {
           <div className="support-info-icon">📱</div>
           <div>
             <div className="support-info-title">WhatsApp</div>
-            <div className="support-info-val">+91 9876543210</div>
+            <div className="support-info-val">+91 9307656010</div>
           </div>
         </div>
       </div>
@@ -162,13 +166,15 @@ export default function ClientSupport() {
           </form>
         </div>
       )}
-
+        <div className="tickets-count">
+         Total Tickets: {tickets.length}
+         </div>
       {/* TICKETS LIST */}
       {loading && <div className="page-loading">Loading tickets...</div>}
       {!loading && tickets.length === 0 && (
         <div className="empty-state">
           <div className="empty-icon">🎫</div>
-          <h3>No tickets yet</h3>
+          <h3>No support requests yet</h3>
           <p>Having an issue? Create a support ticket and we'll help you out!</p>
         </div>
       )}

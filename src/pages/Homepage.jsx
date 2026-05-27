@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const FEATURES = [
   { icon: "⚡", title: "Fast Development", desc: "Ship in weeks, not months. Optimized workflows, zero bloat.", span: 2 },
@@ -11,7 +13,11 @@ const FEATURES = [
 
 const TECH = ["React", "Spring Boot", "MySQL", "JWT Auth", "REST API", "Cloud Deploy", "Figma", "Git CI/CD"];
 
-export default function Homepage() {
+export default function Homepage() 
+{
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <div>
       <Navbar />
@@ -33,7 +39,7 @@ export default function Homepage() {
             <Link to="/about"><button className="btn-outline">Our Story</button></Link>
           </div>
           <div className="hero-stats">
-            <div className="stat"><h3>50+</h3><p>Projects Shipped</p></div>
+            <div className="stat"><h3>5+</h3><p>Projects Shipped</p></div>
             <div className="stat"><h3>98%</h3><p>Client Satisfaction</p></div>
             <div className="stat"><h3>24h</h3><p>Response Time</p></div>
           </div>
@@ -44,7 +50,7 @@ export default function Homepage() {
           <div className="hero-visual">
             <div className="hv-card wide" style={{ "--accent": "linear-gradient(135deg,#2563eb,#7c3aed)" }}>
               <div className="hv-icon">🚀</div>
-              <div className="hv-num">50+</div>
+              <div className="hv-num">5+</div>
               <div className="hv-label">Projects delivered worldwide</div>
             </div>
             <div className="hv-card" style={{ "--accent": "linear-gradient(135deg,#0ea5e9,#22d3ee)" }}>
@@ -129,6 +135,8 @@ export default function Homepage() {
           <Link to="/services"><button className="btn-outline">View Services</button></Link>
         </div>
       </section>
+      <Footer />
+
     </div>
   );
 }

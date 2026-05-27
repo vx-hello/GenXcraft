@@ -30,7 +30,13 @@ export default function AdminSupport() {
     }
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+
+  window.scrollTo(0, 0);
+
+  load();
+
+}, []);
 
   const handleMarkReview = async (id) => {
     setActioning(id);
@@ -95,7 +101,7 @@ export default function AdminSupport() {
 
       <div className="requests-list">
         {filtered.length === 0 && !loading && (
-          <div className="page-empty">No tickets found.</div>
+          <div className="page-empty">No support tickets available.</div>
         )}
         {filtered.map((t) => {
           const badge = STATUS_BADGE[t.status] || { cls: "badge-gray", label: t.status };
@@ -123,9 +129,23 @@ export default function AdminSupport() {
               {isExpanded && (
                 <div className="request-card-body">
                   <div className="req-client-info">
-                    <span>📧 {t.clientEmail}</span>
+                    <span>🆔 {t.id}</span>
+                     </div>
+
+                 <div className="req-client-info">
+                  <span>📧 {t.clientEmail}</span>
                   </div>
-                  <p className="req-desc">{t.message}</p>
+
+                 <div className="req-client-info">
+                 <span>
+                 🕒 Updated:
+                  {t.updatedAt
+                  ? new Date(t.updatedAt).toLocaleDateString()
+                  : "N/A"}
+                   </span>
+                   </div>
+
+                   <p className="req-desc">{t.message}</p>
 
                   {t.adminReply && (
                     <div className="admin-reply-box">

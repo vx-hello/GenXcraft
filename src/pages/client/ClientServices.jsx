@@ -13,14 +13,14 @@ const processSteps = [
 // Fallback services if backend has none
 const defaultServices = [
   {
-    id: "default-1", icon: "🌐", title: "Web Development", color: "#38bdf8",
+    id: "default-1", icon: "💻", title: "Web Development Application", color: "#38bdf8",
     description: "High-performance, scalable websites built with modern tech stacks.",
     features: "React,Spring Boot,Database Design,SEO Optimized",
   },
   {
-    id: "default-2", icon: "📱", title: "Mobile App Development", color: "#a78bfa",
-    description: "Cross-platform mobile apps that work seamlessly on iOS and Android.",
-    features: "React Native,Flutter,Push Notifications,App Store Deployment",
+    id: "default-2", icon: "🌐", title: "Business Websites", color: "#a78bfa",
+    description: "Professional responsive websites designed for your brand.",
+    features: "React,Spring Boot,Database Design,SEO Optimized",
   },
   {
     id: "default-3", icon: "🎨", title: "UI/UX Design", color: "#f472b6",
@@ -42,6 +42,28 @@ const defaultServices = [
     description: "Launch your idea fast with a minimum viable product built in weeks.",
     features: "Rapid Prototyping,Lean Development,Market Validation,Scalable Architecture",
   },
+ {
+  id: "default-6", icon: "🚀", title: "Deployment & Hosting", color: "#38bdf8",
+  description: "Fast and secure deployment solutions with reliable cloud hosting setup.",
+  features: "Cloud Hosting,Domain Setup,SSL Security,Server Management",
+},
+
+{
+  id: "default-7", icon: "🛠️", title: "Maintenance & Support", color: "#34d399",
+  description: "Ongoing support and maintenance to keep your applications running smoothly.",
+  features: "Bug Fixes,Performance Monitoring,Regular Updates,Technical Support",
+},
+
+{
+  id: "default-8", icon: "📊", title: "Admin Dashboards", color: "#a78bfa",
+  description: "Custom admin panels and dashboards for managing data and business operations.",
+  features: "Analytics Reports,User Management,Role Access,Real-Time Data",
+},
+{
+  id: "default-9", icon: "💡", title: "Custom Development", color: "#fb7185",
+  description: "Have an idea? We can design and develop any custom website, app, or software solution you need.",
+  features: "Web Apps,Mobile Apps,Custom Software,Unique Features",
+}
 ];
 
 export default function ClientServices() {

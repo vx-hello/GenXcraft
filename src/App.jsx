@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 
+
+import ScrollToTop from "./components/ScrollToTop";
+
 // PUBLIC PAGES
 import Homepage from "./pages/Homepage";
 import Services from "./pages/Services";
@@ -184,6 +187,17 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+       
+        <Route
+      path="/client/support"
+      element={
+        <ProtectedRoute requiredRole="CLIENT">
+          <ClientSupport />
+        </ProtectedRoute>
+      }
+    />
+        
+        
 
         {/* FALLBACK */}
         <Route path="*" element={<Navigate to="/" replace />} />

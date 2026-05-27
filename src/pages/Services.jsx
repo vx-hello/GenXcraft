@@ -1,44 +1,67 @@
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import { useEffect } from "react";
+
+
 
 export default function Services() {
 
   /* ================= NAVIGATION ================= */
   const navigate = useNavigate();
 
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   /* ================= DATA ================= */
-  const servicesData = [
-    {
-      icon: "💻",
-      title: "Web Application Development",
-      desc: "Custom web applications built using modern technologies with scalable architecture."
-    },
-    {
-      icon: "🌐",
-      title: "Business Websites",
-      desc: "Professional responsive websites designed for your brand."
-    },
-    {
-      icon: "🛒",
-      title: "E-Commerce Solutions",
-      desc: "Secure online stores with modern UI and payment integration."
-    },
-    {
-      icon: "⚙️",
-      title: "API Development",
-      desc: "Powerful REST APIs and third-party integrations."
-    },
-    {
-      icon: "📊",
-      title: "Admin Dashboards",
-      desc: "Analytics dashboards with full data control and management."
-    },
-    {
-      icon: "☁️",
-      title: "Deployment & Hosting",
-      desc: "Fast cloud deployment and reliable hosting solutions."
-    }
-  ];
+ const servicesData = [
+  {
+    icon: "💻",
+    title: "Web Application Development",
+    desc: "Custom web applications built using modern technologies with scalable architecture."
+  },
+  {
+    icon: "🌐",
+    title: "Business Websites",
+    desc: "Professional responsive websites designed for your brand."
+  },
+  {
+    icon: "🛒",
+    title: "E-Commerce Solutions",
+    desc: "Secure online stores with modern UI and payment integration."
+  },
+  {
+    icon: "⚙️",
+    title: "API Development",
+    desc: "Powerful REST APIs and third-party integrations."
+  },
+  {
+    icon: "📊",
+    title: "Admin Dashboards",
+    desc: "Analytics dashboards with full data control and management."
+  },
+  {
+    icon: "☁️",
+    title: "Deployment & Hosting",
+    desc: "Fast cloud deployment and reliable hosting solutions."
+  },
+  {
+    icon: "🎨",
+    title: "UI/UX Design",
+    desc: "Modern, clean, and user-focused interface designs crafted for better user experience and engagement."
+  },
+  {
+    icon: "🤖",
+    title: "AI & Automation",
+    desc: "Smart AI-powered solutions and workflow automation to improve business efficiency and productivity."
+  },
+  {
+    icon: "🛠️",
+    title: "Maintenance & Support",
+    desc: "Reliable technical support, bug fixing, updates, and performance optimization for your applications."
+  }
+];
 
   const processSteps = [
     "Requirement",
@@ -144,6 +167,9 @@ export default function Services() {
         </div>
 
       </section>
+      <Footer />
+
+  
 
     </>
   );

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ClientLayout from "../../components/ClientLayout";
 import { getClientDashboard } from "../../api/clientApi";
 
+
 function StatCard({ label, value, icon, color }) {
   return (
     <div className="stat-card" style={{ "--stat-color": color }}>
@@ -111,6 +112,8 @@ export default function ClientDashboard() {
           </div>
         </>
       )}
+      
     </ClientLayout>
+    
   );
 }

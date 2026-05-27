@@ -226,7 +226,7 @@ export default function AdminProjects() {
               </div>
               <div className="form-row">
                 <div className="input-group">
-                  <label>Budget ($)</label>
+                  <label>Budget (₹)</label>
                   <input
                     className="input"
                     type="number"

@@ -1,10 +1,13 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const INFO = [
-  { icon: "📧", label: "Email Us", value: "devex@gmail.com", tag: "Replies within 2 hours" },
-  { icon: "📞", label: "Call Us", value: "+91 9876543210", tag: "Mon–Sat, 10am–7pm" },
+  { icon: "📧", label: "Email Us", value: "thedevexhq@gmail.com", tag: "Replies within 2 hours" },
+  { icon: "📞", label: "Call Us", value: "+91 9307656010", tag: "Mon–Sat, 9am–7pm" },
   { icon: "📍", label: "Location", value: "India", tag: "Available worldwide remotely" },
   { icon: "⏱", label: "Response", value: "Within 24 hrs", tag: "For all project inquiries" },
 ];
@@ -14,13 +17,49 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   const handleChange = (e) => setForm(p => ({ ...p, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => { setSent(true); setLoading(false); }, 1000);
-  };
+  e.preventDefault();
+
+  setLoading(true);
+
+  emailjs
+    .send(
+      "service_audu3qf",
+      "template_0dh7v4b",
+      {
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        phone: form.phone,
+        message: form.message,
+      },
+      "MdHUNlyIIz5FsUEdZ"
+    )
+    .then(() => {
+      setSent(true);
+
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        phone: "",
+        message: "",
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("Failed to send message");
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+};
 
   return (
     <>
@@ -107,7 +146,7 @@ export default function Contact() {
             <div className="cnt-side-icon">💬</div>
             <h3>Quick Chat</h3>
             <p>Prefer to talk directly? Reach us via WhatsApp for a faster response.</p>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/9307656010" target="_blank" rel="noreferrer">
               <button className="btn-outline" style={{ width: '100%', justifyContent: 'center', marginTop: 12 }}>
                 Open WhatsApp →
               </button>
@@ -140,6 +179,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

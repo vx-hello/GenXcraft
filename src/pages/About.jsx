@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+import { useEffect } from "react";
 
 const FEATURES = [
   { icon: "⚡", title: "Fast Delivery", desc: "Rapid builds using modern frameworks and CI/CD pipelines without sacrificing quality." },
@@ -17,13 +19,18 @@ const VALUES = [
 ];
 
 const NUMBERS = [
-  { val: "50+", label: "Projects Shipped" },
+  { val: "5+", label: "Projects Shipped" },
   { val: "98%", label: "Client Satisfaction" },
-  { val: "3yr", label: "In Business" },
+  //{ val: "3yr", label: "In Business" },
   { val: "24h", label: "Response Time" },
 ];
 
 export default function About() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -57,7 +64,7 @@ export default function About() {
             <span className="abt-cf-icon">🚀</span>
             <div>
               <div className="abt-cf-title">Just Shipped</div>
-              <div className="abt-cf-sub">E-Commerce Platform v3.0</div>
+              <div className="abt-cf-sub">FreelanceOS Platform v1.0</div>
             </div>
           </div>
           <div className="abt-card-float abt-cf-2">
@@ -135,6 +142,7 @@ export default function About() {
           <Link to="/services"><button className="btn-outline">View Services</button></Link>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

@@ -31,7 +31,7 @@ export default function ClientLayout({ children, title }) {
       {/* SIDEBAR */}
       <aside className="sidebar">
         <div className="sidebar-brand">
-          <span className="sidebar-logo">⚡</span>
+          <span className="sidebar-logo"></span>
           <span>DEVEX</span>
         </div>
         <div className="sidebar-role-badge client-badge">CLIENT</div>
