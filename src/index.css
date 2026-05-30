@@ -3216,3 +3216,19 @@ body.light .filter-tab.active {
     display: block;
   }
 }
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-socials a {
+  color: #fff;
+  font-size: 22px;
+  transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-3px);
+  color: #4f8cff;
+}

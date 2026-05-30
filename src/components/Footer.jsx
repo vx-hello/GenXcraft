@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaEnvelope, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -18,11 +19,31 @@ export default function Footer() {
             and businesses.
           </p>
 
-          <div className="footer-socials">
-            <a href="/">🌐</a>
-            <a href="/">💼</a>
-            <a href="/">📷</a>
-          </div>
+  <div className="footer-socials">
+  <a
+    href="mailto:thedevexhq@gmail.com"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaEnvelope />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/company/devexhq/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaLinkedinIn />
+  </a>
+
+  <a
+    href="https://www.instagram.com/devexhq?igsh=bXg2MmxmdXkxd3R1"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaInstagram />
+  </a>
+</div>
 
         </div>
 
