@@ -13,7 +13,7 @@ export default function Footer() {
           <h2 className="footer-logo">DEVEX</h2>
 
           <p>
-            DEVEX Solutions builds modern websites,
+            DEVEX  builds modern websites,
             scalable web applications, AI solutions,
             and digital experiences for startups
             and businesses.
@@ -78,7 +78,7 @@ export default function Footer() {
 
           <span>📍 India</span>
           <span>📧 thedevexhq@gmail.com</span>
-          <span>📞 +91 930765010</span>
+          <span>📞 +91 9307656010</span>
 
         </div>
 

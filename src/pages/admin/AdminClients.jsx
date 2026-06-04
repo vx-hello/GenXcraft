@@ -37,48 +37,87 @@ export default function AdminClients() {
       {error && <div className="page-error">{error}</div>}
 
       {!loading && !error && (
-        <div className="table-wrap">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Client ID</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.length === 0 && (
+        <>
+          {/* DESKTOP TABLE */}
+          <div className="table-wrap hide-mobile">
+            <table className="data-table">
+              <thead>
                 <tr>
-                  <td colSpan={5} className="table-empty">
-                    No clients found.
-                  </td>
+                  <th>#</th>
+                  <th>Full Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Client ID</th>
                 </tr>
-              )}
-              {filtered.map((c, i) => (
-                <tr key={c.id}>
-                  <td>{i + 1}</td>
-                  <td>
-                    <div className="client-avatar-row">
-                      <div className="client-avatar">
-                        {c.fullName?.charAt(0).toUpperCase()}
+              </thead>
+              <tbody>
+                {filtered.length === 0 && (
+                  <tr>
+                    <td colSpan={5} className="table-empty">
+                      No clients found.
+                    </td>
+                  </tr>
+                )}
+                {filtered.map((c, i) => (
+                  <tr key={c.id}>
+                    <td>{i + 1}</td>
+                    <td>
+                      <div className="client-avatar-row">
+                        <div className="client-avatar">
+                          {c.fullName?.charAt(0).toUpperCase()}
+                        </div>
+                        <strong>{c.fullName}</strong>
                       </div>
-                      <strong>{c.fullName}</strong>
+                    </td>
+                    <td>{c.email}</td>
+                    <td>{c.phone || "—"}</td>
+                    <td>
+                      <span className="id-pill">
+                        {String(c.id).slice(0, 8)}...
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* MOBILE CARDS */}
+          <div className="admin-cards-list show-mobile">
+            {filtered.length === 0 && (
+              <div className="empty-state">
+                <div className="empty-icon">👥</div>
+                <h3>No clients found</h3>
+              </div>
+            )}
+            {filtered.map((c, i) => (
+              <div key={c.id} className="admin-mobile-card">
+                <div className="admin-mobile-card-header">
+                  <div className="client-avatar-row">
+                    <div className="client-avatar">
+                      {c.fullName?.charAt(0).toUpperCase()}
                     </div>
-                  </td>
-                  <td>{c.email}</td>
-                  <td>{c.phone || "—"}</td>
-                  <td>
-                    <span className="id-pill">
-                      {String(c.id).slice(0, 8)}...
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                    <div>
+                      <div className="admin-mobile-card-title">{c.fullName}</div>
+                      <div className="admin-mobile-card-sub">{c.email}</div>
+                    </div>
+                  </div>
+                  <span className="client-num">#{i + 1}</span>
+                </div>
+                <div className="admin-mobile-card-meta">
+                  <div className="admin-mobile-meta-item">
+                    <span className="admin-mobile-meta-label">Phone</span>
+                    <span>{c.phone || "—"}</span>
+                  </div>
+                  <div className="admin-mobile-meta-item">
+                    <span className="admin-mobile-meta-label">Client ID</span>
+                    <span className="id-mono">{String(c.id).slice(0, 12)}...</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </AdminLayout>
   );

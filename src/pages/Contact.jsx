@@ -146,7 +146,7 @@ export default function Contact() {
             <div className="cnt-side-icon">💬</div>
             <h3>Quick Chat</h3>
             <p>Prefer to talk directly? Reach us via WhatsApp for a faster response.</p>
-            <a href="https://wa.me/9307656010" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/+919930350189" target="_blank" rel="noreferrer">
               <button className="btn-outline" style={{ width: '100%', justifyContent: 'center', marginTop: 12 }}>
                 Open WhatsApp →
               </button>

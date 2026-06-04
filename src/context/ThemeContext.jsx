@@ -1,22 +1,27 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("devex-theme") || "dark";
-  });
+  // Always follow system preference — no toggle
+  const [isDark, setIsDark] = useState(
+    () => window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
 
   useEffect(() => {
-    document.body.classList.remove("light", "dark");
-    document.body.classList.add(theme);
-    localStorage.setItem("devex-theme", theme);
-  }, [theme]);
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const handler = (e) => setIsDark(e.matches);
+    mq.addEventListener("change", handler);
 
-  const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+    // Apply class to body
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(isDark ? "dark" : "light");
+
+    return () => mq.removeEventListener("change", handler);
+  }, [isDark]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggle, isDark: theme === "dark" }}>
+    <ThemeContext.Provider value={{ isDark }}>
       {children}
     </ThemeContext.Provider>
   );

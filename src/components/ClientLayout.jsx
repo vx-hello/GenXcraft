@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useTheme } from "../context/ThemeContext";
 import { logoutUser } from "../api/authApi";
 import { useEffect, useState } from "react";
 
@@ -15,7 +14,6 @@ const navItems = [
 
 export default function ClientLayout({ children, title }) {
   const { logout } = useAuth();
-  const { toggle, isDark } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -87,9 +85,6 @@ export default function ClientLayout({ children, title }) {
 
           <h1 className="layout-title">{title}</h1>
           <div className="layout-header-right">
-            <button className="theme-toggle" onClick={toggle} title="Toggle theme">
-              {isDark ? "☀️" : "🌙"}
-            </button>
             <span className="header-pill client-pill">Client Portal</span>
           </div>
         </header>

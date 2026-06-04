@@ -4,34 +4,24 @@ import { loginUser } from "../../api/authApi";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
-
-  /* ================= STATE ================= */
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  /* ================= HOOKS ================= */
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  /* ================= FORM HANDLER ================= */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
     try {
       const data = await loginUser(email, password);
-      // data = { token: "...", role: "ADMIN" | "CLIENT" }
       login(data.token, data.role);
-
-      if (data.role === "ADMIN") {
-        navigate("/admin/dashboard");
-      } else {
-        navigate("/client/dashboard");
-      }
+      if (data.role === "ADMIN") navigate("/admin/dashboard");
+      else navigate("/client/dashboard");
     } catch (err) {
       const msg =
         err?.response?.data?.message ||
@@ -43,30 +33,33 @@ export default function Login() {
     }
   };
 
-  /* ================= TOGGLE PASSWORD ================= */
-  const togglePassword = () => {
-    setShowPassword(prev => !prev);
-  };
-
   return (
     <div className="auth-wrapper">
-
       <div className="auth-box">
 
-        {/* ================= LEFT SIDE ================= */}
+        {/* ========== LEFT PANEL ========== */}
         <div className="auth-left">
-
           <h1 className="auth-logo">DEVEX</h1>
 
-          <p className="auth-desc">
-            Build modern, scalable and powerful web applications with ease.
-            Join us and take your ideas to the next level with clean and
-            efficient digital solutions.
-          </p>
+          <div className="auth-left-body">
+            <h2 className="auth-left-tagline">
+              Build. Launch.<br />Grow.
+            </h2>
+            <p className="auth-desc">
+              Build modern, scalable and powerful web applications with ease.
+              Join us and take your ideas to the next level with clean and
+              efficient digital solutions.
+            </p>
+          </div>
 
+          <div className="auth-left-features">
+            <div className="auth-feature-chip">⚡ Fast Delivery</div>
+            <div className="auth-feature-chip">🔒 Secure Platform</div>
+            <div className="auth-feature-chip">🌍 Global Reach</div>
+          </div>
         </div>
 
-        {/* ================= RIGHT SIDE ================= */}
+        {/* ========== RIGHT PANEL (form — unchanged) ========== */}
         <div className="auth-right">
 
           <div className="auth-header">
@@ -74,80 +67,70 @@ export default function Login() {
             <p>Sign in to continue to your account</p>
           </div>
 
-          {/* ERROR */}
           {error && <div className="auth-error">{error}</div>}
 
-          {/* ================= FORM ================= */}
           <form onSubmit={handleSubmit} className="auth-form">
 
             {/* EMAIL */}
-            <div className="input-box">
-              <input
-                type="email"
-                name="email"
-                required
-                autoComplete="off"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <label>Email Address</label>
+            <div className="auth-field">
+              <label htmlFor="login-email">Email Address</label>
+              <div className="auth-input-wrap">
+                <span className="auth-input-icon">✉️</span>
+                <input
+                  id="login-email"
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoComplete="email"
+                />
+              </div>
             </div>
 
             {/* PASSWORD */}
-            <div className="input-box password-box">
-
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-
-              <label>Password</label>
-
-              <span
-                className="toggle-password"
-                onClick={togglePassword}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </span>
-
+            <div className="auth-field">
+              <div className="auth-field-header">
+                <label htmlFor="login-password">Password</label>
+                
+            </div>
+              <div className="auth-input-wrap">
+                <span className="auth-input-icon">🔒</span>
+                <input
+                  id="login-password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  className="auth-eye-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  tabIndex={-1}
+                >
+                  {showPassword ? "🙈" : "👁️"}
+                </button>
+              </div>
+              <Link to="/forgot-password" className="auth-forgot-link">
+                  Forgot password?
+                </Link>
             </div>
 
-            {/* OPTIONS */}
-            <div className="auth-row">
-
-              <label className="remember-me">
-                <input type="checkbox" />
-                <span>Remember me</span>
-              </label>
-
-            </div>
-
-            {/* BUTTON */}
-            <button
-              type="submit"
-              className="login-btn"
-              disabled={loading}
-            >
-              {loading ? "Signing In..." : "Sign In"}
+            <button type="submit" className="auth-submit-btn" disabled={loading}>
+              {loading ? "Signing In..." : "Sign In →"}
             </button>
-
           </form>
 
-          {/* FOOTER */}
-          <div className="auth-footer">
-            <p>
-              Don't have an account?{" "}
-              <Link to="/register">Create Account</Link>
-            </p>
-          </div>
+          <p className="auth-switch-text">
+            Don't have an account?{" "}
+            <Link to="/register">Create Account</Link>
+          </p>
 
         </div>
-
       </div>
-
     </div>
   );
-}
+}

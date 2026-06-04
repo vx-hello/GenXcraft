@@ -5,20 +5,6 @@ export default function Navbar() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const [dark, setDark] = useState(() => {
-    return localStorage.getItem("theme") !== "light";
-  });
-
-  useEffect(() => {
-    if (dark) {
-      document.body.classList.remove("light");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
-
   // Close menu on route change
   useEffect(() => {
     setMenuOpen(false);
@@ -52,16 +38,7 @@ export default function Navbar() {
 
         {/* RIGHT */}
         <div className="nav-right">
-          <button
-            className="theme-btn"
-            onClick={() => setDark(!dark)}
-          >
-            {dark ? "☀️ Light" : "🌙 Dark"}
-          </button>
-
-          <Link to="/login" className="btn-nav">
-            Login
-          </Link>
+          <Link to="/login" className="btn-nav">Login</Link>
 
           {/* Hamburger (mobile only) */}
           <button
@@ -102,14 +79,7 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-mobile-footer">
-          <button
-            className="theme-btn"
-            style={{ width: "100%" }}
-            onClick={() => { setDark(!dark); setMenuOpen(false); }}
-          >
-            {dark ? "☀️ Switch to Light" : "🌙 Switch to Dark"}
-          </button>
-          <Link to="/login" className="btn-nav" style={{ textAlign: "center", display: "block", marginTop: "10px" }}>
+          <Link to="/login" className="btn-nav" style={{ textAlign: "center", display: "block" }}>
             Login
           </Link>
         </div>

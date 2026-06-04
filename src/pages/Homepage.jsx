@@ -25,7 +25,7 @@ export default function Homepage()
       {/* ===== HERO ===== */}
       <section className="hero">
         <div className="hero-left">
-          <span className="badge">DEVEX SOLUTIONS</span>
+          <span className="badge">DEVEX </span>
           <h1>
             Build <span className="grad-text">Modern</span><br />
             Digital Products

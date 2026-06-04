@@ -131,66 +131,117 @@ export default function AdminProjects() {
       {error && <div className="page-error">{error}</div>}
 
       {!loading && !error && (
-        <div className="table-wrap">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Client</th>
-                <th>Budget</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {projects.length === 0 && (
+        <>
+          {/* DESKTOP TABLE */}
+          <div className="table-wrap hide-mobile">
+            <table className="data-table">
+              <thead>
                 <tr>
-                  <td colSpan={7} className="table-empty">
-                    No projects found. Create one!
-                  </td>
+                  <th>Title</th>
+                  <th>Client</th>
+                  <th>Budget</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
-              )}
-              {projects.map((p) => (
-                <tr key={p.id}>
-                  <td>
-                    <strong>{p.title}</strong>
-                    <div className="table-sub">{p.description}</div>
-                  </td>
-                  <td>{p.client?.fullName || "—"}</td>
-                  <td>{p.budget ? `$${Number(p.budget).toLocaleString()}` : "—"}</td>
-                  <td>{p.startDate || "—"}</td>
-                  <td>{p.endDate || "—"}</td>
-                  <td>
-                    <select
-                      className={`status-select ${STATUS_COLORS[p.status] || ""}`}
-                      value={p.status || "PENDING"}
-                      onChange={(e) => handleStatusChange(p.id, e.target.value)}
-                    >
-                      {STATUS_OPTIONS.map((s) => (
-                        <option key={s} value={s}>
-                          {s.replace("_", " ")}
-                        </option>
-                      ))}
-                    </select>
-                  </td>
-                  <td className="action-btns">
-                    <button className="btn-icon edit" onClick={() => openEdit(p)}>
-                      ✏️
-                    </button>
-                    <button
-                      className="btn-icon delete"
-                      onClick={() => setDeleteConfirm(p.id)}
-                    >
-                      🗑️
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {projects.length === 0 && (
+                  <tr>
+                    <td colSpan={7} className="table-empty">
+                      No projects found. Create one!
+                    </td>
+                  </tr>
+                )}
+                {projects.map((p) => (
+                  <tr key={p.id}>
+                    <td>
+                      <strong>{p.title}</strong>
+                      <div className="table-sub">{p.description}</div>
+                    </td>
+                    <td>{p.client?.fullName || "—"}</td>
+                    <td>{p.budget ? `₹${Number(p.budget).toLocaleString()}` : "—"}</td>
+                    <td>{p.startDate || "—"}</td>
+                    <td>{p.endDate || "—"}</td>
+                    <td>
+                      <select
+                        className={`status-select ${STATUS_COLORS[p.status] || ""}`}
+                        value={p.status || "PENDING"}
+                        onChange={(e) => handleStatusChange(p.id, e.target.value)}
+                      >
+                        {STATUS_OPTIONS.map((s) => (
+                          <option key={s} value={s}>{s.replace("_", " ")}</option>
+                        ))}
+                      </select>
+                    </td>
+                    <td className="action-btns">
+                      <button className="btn-icon edit" onClick={() => openEdit(p)}>✏️</button>
+                      <button className="btn-icon delete" onClick={() => setDeleteConfirm(p.id)}>🗑️</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* MOBILE CARDS */}
+          <div className="admin-cards-list show-mobile">
+            {projects.length === 0 && (
+              <div className="empty-state">
+                <div className="empty-icon">📁</div>
+                <h3>No projects yet</h3>
+                <p>Create your first project to get started.</p>
+              </div>
+            )}
+            {projects.map((p) => (
+              <div key={p.id} className="admin-mobile-card">
+                <div className="admin-mobile-card-header">
+                  <div>
+                    <div className="admin-mobile-card-title">{p.title}</div>
+                    {p.description && (
+                      <div className="admin-mobile-card-sub">{p.description}</div>
+                    )}
+                  </div>
+                  <div className="action-btns">
+                    <button className="btn-icon edit" onClick={() => openEdit(p)}>✏️</button>
+                    <button className="btn-icon delete" onClick={() => setDeleteConfirm(p.id)}>🗑️</button>
+                  </div>
+                </div>
+                <div className="admin-mobile-card-meta">
+                  <div className="admin-mobile-meta-item">
+                    <span className="admin-mobile-meta-label">Client</span>
+                    <span>{p.client?.fullName || "—"}</span>
+                  </div>
+                  <div className="admin-mobile-meta-item">
+                    <span className="admin-mobile-meta-label">Budget</span>
+                    <span>{p.budget ? `₹${Number(p.budget).toLocaleString()}` : "—"}</span>
+                  </div>
+                  <div className="admin-mobile-meta-item">
+                    <span className="admin-mobile-meta-label">Start</span>
+                    <span>{p.startDate || "—"}</span>
+                  </div>
+                  <div className="admin-mobile-meta-item">
+                    <span className="admin-mobile-meta-label">End</span>
+                    <span>{p.endDate || "—"}</span>
+                  </div>
+                </div>
+                <div className="admin-mobile-card-footer">
+                  <select
+                    className={`status-select ${STATUS_COLORS[p.status] || ""}`}
+                    value={p.status || "PENDING"}
+                    onChange={(e) => handleStatusChange(p.id, e.target.value)}
+                    style={{ width: "100%" }}
+                  >
+                    {STATUS_OPTIONS.map((s) => (
+                      <option key={s} value={s}>{s.replace("_", " ")}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {/* CREATE/EDIT MODAL */}
