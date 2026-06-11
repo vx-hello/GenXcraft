@@ -46,7 +46,7 @@ export default function ClientLayout({ children, title }) {
       <aside className={`sidebar ${sidebarOpen ? "sidebar-open" : ""}`}>
         <div className="sidebar-brand">
           <span className="sidebar-logo"></span>
-          <span>DEVEX</span>
+          <span>GenXcraft</span>
         </div>
         <div className="sidebar-role-badge client-badge">CLIENT</div>
         <nav className="sidebar-nav">

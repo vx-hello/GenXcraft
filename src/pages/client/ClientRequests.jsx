@@ -8,7 +8,6 @@ import {
 
 const SERVICE_TYPES = [
   "Web Development",
-  "Mobile App",
   "UI/UX Design",
   "API Development",
   "E-commerce",

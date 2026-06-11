@@ -101,7 +101,7 @@ export default function AdminLayout({ children, title }) {
 
         <div className="sidebar-brand">
           <span className="sidebar-logo"></span>
-          <span>DEVEX</span>
+          <span>GenXcraft</span>
         </div>
 
         <div className="sidebar-role-badge">
