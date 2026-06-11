@@ -25,7 +25,7 @@ export default function Navbar() {
 
         {/* LEFT */}
         <div className="nav-left">
-          <Link to="/" className="logo">DEVEX</Link>
+          <Link to="/" className="logo">GenXcraft</Link>
         </div>
 
         {/* CENTER (desktop) */}

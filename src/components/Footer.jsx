@@ -10,10 +10,10 @@ export default function Footer() {
         {/* BRAND */}
         <div className="footer-brand">
 
-          <h2 className="footer-logo">DEVEX</h2>
+          <h2 className="footer-logo">GenXcraft</h2>
 
           <p>
-            DEVEX  builds modern websites,
+            GenXcraft builds modern websites,
             scalable web applications, AI solutions,
             and digital experiences for startups
             and businesses.
@@ -62,7 +62,7 @@ export default function Footer() {
         {/* SERVICES */}
         <div className="footer-links">
 
-          <h3>Why DEVEX?</h3>
+          <h3>Why GenXcraft?</h3>
 
          <span>Modern UI/UX</span>
          <span>Fast Delivery</span>
@@ -86,7 +86,7 @@ export default function Footer() {
 
       {/* BOTTOM */}
       <div className="footer-bottom">
-        © 2026 DEVEX . All Rights Reserved.
+        © 2026 GenXcraft . All Rights Reserved.
       </div>
 
     </footer>

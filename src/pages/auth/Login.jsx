@@ -39,7 +39,7 @@ export default function Login() {
 
         {/* ========== LEFT PANEL ========== */}
         <div className="auth-left">
-          <h1 className="auth-logo">DEVEX</h1>
+          <h1 className="auth-logo">GenXcraft</h1>
 
           <div className="auth-left-body">
             <h2 className="auth-left-tagline">

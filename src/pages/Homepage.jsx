@@ -25,7 +25,7 @@ export default function Homepage()
       {/* ===== HERO ===== */}
       <section className="hero">
         <div className="hero-left">
-          <span className="badge">DEVEX </span>
+          <span className="badge">GenXcraft</span>
           <h1>
             Build <span className="grad-text">Modern</span><br />
             Digital Products
@@ -55,7 +55,7 @@ export default function Homepage()
             </div>
             <div className="hv-card" style={{ "--accent": "linear-gradient(135deg,#0ea5e9,#22d3ee)" }}>
               <div className="hv-icon">⚡</div>
-              <div className="hv-num">2 wk</div>
+              <div className="hv-num">4 wk</div>
               <div className="hv-label">Avg. MVP time</div>
             </div>
             <div className="hv-card" style={{ "--accent": "linear-gradient(135deg,#10b981,#34d399)" }}>
@@ -89,7 +89,7 @@ export default function Homepage()
       {/* ===== FEATURES ===== */}
       <section className="section">
         <div className="section-header">
-          <span className="section-tag">WHY DEVEX</span>
+          <span className="section-tag">WHY GenXcraft</span>
           <h2>Everything you need,<br />nothing you don't.</h2>
           <p>We cut the fluff and focus on what actually ships — fast, clean, scalable digital products.</p>
         </div>
@@ -131,7 +131,7 @@ export default function Homepage()
       {/* ===== CTA ===== */}
       <section className="cta-section">
         <h2>Ready to build something<br />extraordinary?</h2>
-        <p>Join 50+ businesses that chose Devex to power their digital future.</p>
+        <p>Join 5+ businesses that chose GenXcraft to power their digital future.</p>
         <div className="cta-buttons">
           <Link to="/contact"><button className="btn-primary">Start Your Project →</button></Link>
           <Link to="/services"><button className="btn-outline">View Services</button></Link>

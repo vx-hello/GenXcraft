@@ -33,8 +33,8 @@ export default function ForgotPassword() {
 
         {/* BRAND */}
         <div className="auth-brand">
-          <span className="auth-brand-logo">D</span>
-          <span className="auth-brand-name">DEVEX</span>
+          <span className="auth-brand-logo">G</span>
+          <span className="auth-brand-name">GenXcraft</span>
         </div>
 
         <div className="auth-card-title">

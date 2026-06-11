@@ -38,13 +38,13 @@ export default function About() {
       {/* ============= HERO ============= */}
       <section className="abt-hero">
         <div className="abt-hero-inner">
-          <span className="about-badge">ABOUT DEVEX</span>
+          <span className="about-badge">ABOUT GenXcraft</span>
           <h1>
             We build digital products<br />
             <span className="abt-grad">worth bragging about.</span>
           </h1>
           <p>
-            Devex is a full-stack software studio. We partner with startups and
+            GenXcraft is a full-stack software studio. We partner with startups and
             businesses to design, build, and ship products that grow fast and
             look amazing doing it.
           </p>
@@ -78,7 +78,7 @@ export default function About() {
             <span className="abt-cf-icon">⭐</span>
             <div>
               <div className="abt-cf-title">5-Star Rating</div>
-              <div className="abt-cf-sub">From 40+ clients</div>
+              <div className="abt-cf-sub">From 5+ clients</div>
             </div>
           </div>
         </div>
