@@ -21,7 +21,7 @@ export default function Footer() {
 
   <div className="footer-socials">
   <a
-    href="mailto:thedevexhq@gmail.com"
+    href="mailto:genxcrafthq@gmail.com"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -29,7 +29,7 @@ export default function Footer() {
   </a>
 
   <a
-    href="https://www.linkedin.com/company/devexhq/"
+    href="https://linkedin.com/in/genx-craft-424057416"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -37,7 +37,7 @@ export default function Footer() {
   </a>
 
   <a
-    href="https://www.instagram.com/devexhq?igsh=bXg2MmxmdXkxd3R1"
+    href="https://www.instagram.com/genxcraft_/"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -77,7 +77,7 @@ export default function Footer() {
           <h3>Contact</h3>
 
           <span>📍 India</span>
-          <span>📧 thedevexhq@gmail.com</span>
+          <span>📧 Genxcrafthq@gmail.com</span>
           <span>📞 +91 9307656010</span>
 
         </div>

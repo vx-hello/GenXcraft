@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import { useEffect } from "react";
 
 const INFO = [
-  { icon: "📧", label: "Email Us", value: "thedevexhq@gmail.com", tag: "Replies within 2 hours" },
+  { icon: "📧", label: "Email Us", value: "Genxcrafthq@gmail.com", tag: "Replies within 2 hours" },
   { icon: "📞", label: "Call Us", value: "+91 9307656010", tag: "Mon–Sat, 9am–7pm" },
   { icon: "📍", label: "Location", value: "India", tag: "Available worldwide remotely" },
   { icon: "⏱", label: "Response", value: "Within 24 hrs", tag: "For all project inquiries" },
