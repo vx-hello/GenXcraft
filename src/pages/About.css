@@ -422,3 +422,34 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ================================================================
+   RESPONSIVE OVERRIDES (Encapsulated)
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .abt-hero-nums { grid-template-columns: repeat(2, 1fr); }
+  .abt-hero { grid-template-columns: 1fr; }
+  .abt-hero-visual { display: none; }
+  .abt-vals-grid { grid-template-columns: repeat(2, 1fr); }
+  .abt-mission { grid-template-columns: 1fr; gap: 40px; padding: 70px 6%; }
+}
+
+@media (max-width: 768px) {
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .about-main { grid-template-columns: 1fr; }
+  .about-right { grid-template-columns: 1fr 1fr; }
+  .abt-hero { grid-template-columns: 1fr; padding: 60px 5% 40px; }
+  .abt-hero-visual { display: none; }
+  .abt-vals-grid { grid-template-columns: 1fr 1fr; }
+  .abt-mission { grid-template-columns: 1fr; padding: 60px 5%; gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .about-right { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .abt-vals-grid { grid-template-columns: 1fr; }
+  .abt-hero-nums { grid-template-columns: 1fr 1fr; }
+  .abt-cta { padding: 48px 4%; }
+}

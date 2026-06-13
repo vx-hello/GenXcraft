@@ -157,3 +157,23 @@
 .services-cta-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
 .services-cta-card p { color: var(--text-2); margin-bottom: 24px; }
 .services-cta-card .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ================================================================
+   RESPONSIVE OVERRIDES (Encapsulated)
+   ================================================================ */
+
+@media (min-width: 1440px) {
+  .services-grid { padding: 0 10% 100px; }
+  .services-hero { padding: 100px 10% 80px; }
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr 1fr; padding: 0 5% 60px; }
+  .services-hero { padding: 60px 5% 40px; }
+  .process-steps { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; padding: 0 4% 48px; }
+  .services-hero { padding: 48px 4% 32px; }
+}

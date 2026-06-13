@@ -412,3 +412,62 @@
   padding-bottom: 8px;
   align-self: center;
 }
+
+/* ================================================================
+   RESPONSIVE OVERRIDES (Encapsulated)
+   ================================================================ */
+
+@media (min-width: 1440px) {
+  .hero { padding: 80px 10%; gap: 80px; }
+  .section { padding: 100px 10%; }
+  .cta-section { margin: 0 10% 100px; }
+  .hp-process { padding: 100px 10%; }
+}
+
+@media (max-width: 1200px) {
+  .hero { padding: 60px 6%; gap: 48px; }
+  .hero-right { flex: 0 0 340px; }
+  .section { padding: 70px 6%; }
+  .cta-section { margin: 0 6% 70px; }
+}
+
+@media (max-width: 1024px) {
+  .hp-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .hp-feature-card { grid-column: span 1 !important; }
+}
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column; padding: 48px 5% 40px; gap: 32px; }
+  .hero-right { display: none; }
+  .hero-left h1 { font-size: clamp(32px, 8vw, 48px); }
+  .hero-left > p { font-size: 15px; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .hero-stats .stat h3 { font-size: 24px; }
+  .cards { grid-template-columns: 1fr; }
+  .cards .card:nth-child(1), .cards .card:nth-child(4) { grid-column: span 1; }
+  .hp-features-grid { grid-template-columns: 1fr; }
+  .hp-feature-card { grid-column: span 1 !important; }
+  .cta-section { margin: 0 4% 60px; padding: 44px 28px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 36px 4% 32px; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-outline { width: 100%; justify-content: center; }
+  .hero-stats { gap: 16px; }
+  .hero-stats .stat h3 { font-size: 22px; }
+  .cta-section { margin: 0 3% 48px; padding: 32px 18px; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-outline { justify-content: center; }
+  .hp-steps { flex-direction: column; align-items: center; gap: 16px; }
+  .hp-step { flex-direction: column; align-items: center; }
+  .hp-step-arrow { display: none; }
+}
+
+@media (max-width: 360px) {
+  .hero-left h1 { font-size: 28px; }
+  .section-header h2 { font-size: 24px; }
+  .cta-section { padding: 24px 14px; }
+}
