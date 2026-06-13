@@ -142,7 +142,15 @@ export default function AdminRequests() {
                     {req.fileUrl && (
                       <div className="req-detail">
                         <span>📎 File</span>
-                        <strong className="file-attached">Attached</strong>
+                        <a
+                          href={`${import.meta.env.VITE_API_URL || ""}/api/v1/files/${req.fileUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="file-download-link"
+                          style={{ color: "var(--blue-light)", textDecoration: "underline", fontWeight: "bold" }}
+                        >
+                          📄 Download
+                        </a>
                       </div>
                     )}
                   </div>

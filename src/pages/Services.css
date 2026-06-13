@@ -1,0 +1,159 @@
+/* ================================================================
+   PUBLIC SERVICES PAGE
+   ================================================================ */
+.services-hero {
+  padding: 80px 7% 60px;
+  text-align: center;
+  position: relative;
+}
+
+.services-hero h1 {
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.services-badge, .contact-badge, .about-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 99px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.services-hero p { color: var(--text-2); font-size: 17px; max-width: 560px; margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0 7% 80px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grad-brand);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover { border-color: var(--border-glow); transform: translateY(-6px); box-shadow: var(--shadow-blue); }
+.service-card:hover::before { opacity: 1; }
+
+.service-card .icon, .service-card .service-icon {
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; height: 60px;
+  border-radius: var(--r-md);
+  background: rgba(59,130,246,0.08);
+  margin-bottom: 18px;
+}
+
+.service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.service-card p { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 16px; }
+
+.service-features { list-style: none; margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+.service-features li { font-size: 13px; color: var(--text-2); display: flex; align-items: center; gap: 8px; }
+.service-cta { margin-top: auto; }
+
+/* PROCESS SECTION */
+.process-section {
+  padding: 60px 7%;
+  text-align: center;
+}
+
+.process-section h2 { font-size: 32px; font-weight: 900; margin-bottom: 8px; }
+.process-sub { color: var(--text-2); margin-bottom: 48px; }
+
+.process-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.process-item { display: flex; align-items: center; gap: 8px; }
+
+.step { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.step p { font-size: 13px; color: var(--text-2); font-weight: 500; max-width: 80px; text-align: center; }
+
+.circle {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  box-shadow: var(--shadow-blue);
+  font-size: 17px;
+}
+
+.arrow { font-size: 18px; color: var(--text-3); }
+
+/* Process Steps (client services) */
+.process-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px;
+  transition: border-color 0.2s;
+}
+
+.process-step:hover { border-color: var(--border-glow); }
+
+.step-num {
+  font-size: 28px;
+  font-weight: 900;
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.step-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.step-content p { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+.services-cta-card {
+  background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(124,58,237,0.15));
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: var(--r-xl);
+  padding: 36px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.services-cta-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+.services-cta-card p { color: var(--text-2); margin-bottom: 24px; }
+.services-cta-card .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }

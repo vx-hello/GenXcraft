@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerUser } from "../../api/authApi";
 import { useAuth } from "../../context/AuthContext";
+import "./Auth.css";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);

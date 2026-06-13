@@ -1,40 +1,38 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 
-
 import ScrollToTop from "./components/ScrollToTop";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // PUBLIC PAGES
-import Homepage from "./pages/Homepage";
-import Services from "./pages/Services";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Services = lazy(() => import("./pages/Services"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 // AUTH
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import ForgotPassword from "./pages/auth/ForgotPassword";
-import ResetPassword from "./pages/auth/ResetPassword";
+const Login = lazy(() => import("./pages/auth/Login"));
+const Register = lazy(() => import("./pages/auth/Register"));
+const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/auth/ResetPassword"));
 
 // ADMIN
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminProjects from "./pages/admin/AdminProjects";
-import AdminClients from "./pages/admin/AdminClients";
-import AdminAnalytics from "./pages/admin/AdminAnalytics";
-import AdminRequests from "./pages/admin/AdminRequests";
-import AdminSupport from "./pages/admin/AdminSupport";
-import AdminServices from "./pages/admin/AdminServices";
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminProjects = lazy(() => import("./pages/admin/AdminProjects"));
+const AdminClients = lazy(() => import("./pages/admin/AdminClients"));
+const AdminAnalytics = lazy(() => import("./pages/admin/AdminAnalytics"));
+const AdminRequests = lazy(() => import("./pages/admin/AdminRequests"));
+const AdminSupport = lazy(() => import("./pages/admin/AdminSupport"));
+const AdminServices = lazy(() => import("./pages/admin/AdminServices"));
 
 // CLIENT
-import ClientDashboard from "./pages/client/ClientDashboard";
-import ClientProjects from "./pages/client/ClientProjects";
-import ClientProfile from "./pages/client/ClientProfile";
-import ClientRequests from "./pages/client/ClientRequests";
-import ClientServices from "./pages/client/ClientServices";
-import ClientSupport from "./pages/client/ClientSupport";
-
-// PROTECTED
-import ProtectedRoute from "./components/ProtectedRoute";
+const ClientDashboard = lazy(() => import("./pages/client/ClientDashboard"));
+const ClientProjects = lazy(() => import("./pages/client/ClientProjects"));
+const ClientProfile = lazy(() => import("./pages/client/ClientProfile"));
+const ClientRequests = lazy(() => import("./pages/client/ClientRequests"));
+const ClientServices = lazy(() => import("./pages/client/ClientServices"));
+const ClientSupport = lazy(() => import("./pages/client/ClientSupport"));
 
 /* ================= ROOT REDIRECT ================= */
 function RootRedirect() {
@@ -57,145 +55,147 @@ function RootRedirect() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
+        <Routes>
 
-        {/* HOME */}
-        <Route path="/" element={<RootRedirect />} />
+          {/* HOME */}
+          <Route path="/" element={<RootRedirect />} />
 
-        {/* PUBLIC ROUTES (🔥 FIX ADDED) */}
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+          {/* PUBLIC ROUTES (🔥 FIX ADDED) */}
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-        {/* AUTH */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+          {/* AUTH */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-        {/* ================= ADMIN ================= */}
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
+          {/* ================= ADMIN ================= */}
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/admin/projects"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminProjects />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/admin/projects"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminProjects />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/admin/clients"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminClients />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/admin/clients"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminClients />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/admin/analytics"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminAnalytics />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/admin/analytics"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminAnalytics />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/admin/requests"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminRequests />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/admin/requests"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminRequests />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/admin/support"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminSupport />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/admin/support"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminSupport />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/admin/services"
-          element={
-            <ProtectedRoute requiredRole="ADMIN">
-              <AdminServices />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/admin/services"
+            element={
+              <ProtectedRoute requiredRole="ADMIN">
+                <AdminServices />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* ================= CLIENT ================= */}
-        <Route
-          path="/client/dashboard"
-          element={
-            <ProtectedRoute requiredRole="CLIENT">
-              <ClientDashboard />
-            </ProtectedRoute>
-          }
-        />
+          {/* ================= CLIENT ================= */}
+          <Route
+            path="/client/dashboard"
+            element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientDashboard />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/client/projects"
-          element={
-            <ProtectedRoute requiredRole="CLIENT">
-              <ClientProjects />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/client/projects"
+            element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientProjects />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/client/profile"
-          element={
-            <ProtectedRoute requiredRole="CLIENT">
-              <ClientProfile />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/client/profile"
+            element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientProfile />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/client/requests"
-          element={
-            <ProtectedRoute requiredRole="CLIENT">
-              <ClientRequests />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/client/requests"
+            element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientRequests />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/client/services"
-          element={
-            <ProtectedRoute requiredRole="CLIENT">
-              <ClientServices />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/client/services"
+            element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientServices />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/client/support"
-          element={
-            <ProtectedRoute requiredRole="CLIENT">
-              <ClientSupport />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/client/support"
+            element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientSupport />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* FALLBACK */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+          {/* FALLBACK */}
+          <Route path="*" element={<Navigate to="/" replace />} />
 
-      </Routes>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
-}
+}

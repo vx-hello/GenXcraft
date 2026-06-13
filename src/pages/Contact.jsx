@@ -4,6 +4,7 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
+import "./Contact.css";
 
 const INFO = [
   { icon: "📧", label: "Email Us", value: "Genxcrafthq@gmail.com", tag: "Replies within 2 hours" },

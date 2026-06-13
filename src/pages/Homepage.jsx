@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
+import "./Homepage.css";
 
 const FEATURES = [
   { icon: "⚡", title: "Fast Development", desc: "Ship in weeks, not months. Optimized workflows, zero bloat.", span: 2 },

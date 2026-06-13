@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../api/authApi";
 import { useAuth } from "../../context/AuthContext";
+import "./Auth.css";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);

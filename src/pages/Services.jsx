@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
+import "./Services.css";
 
 
 

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useEffect } from "react";
+import "./About.css";
 
 const FEATURES = [
   { icon: "⚡", title: "Fast Delivery", desc: "Rapid builds using modern frameworks and CI/CD pipelines without sacrificing quality." },

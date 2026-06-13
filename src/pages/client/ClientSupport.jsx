@@ -88,7 +88,7 @@ export default function ClientSupport() {
           <div className="support-info-icon">📧</div>
           <div>
             <div className="support-info-title">Email Support</div>
-            <div className="support-info-val">thedevexhq@gmail.com</div>
+            <div className="support-info-val">Genxcrafthq@gmail.com</div>
           </div>
         </div>
         <div className="support-info-card">
@@ -102,7 +102,7 @@ export default function ClientSupport() {
           <div className="support-info-icon">📱</div>
           <div>
             <div className="support-info-title">WhatsApp</div>
-            <div className="support-info-val">+91 9307656010</div>
+            <div className="support-info-val">+91 9930350189</div>
           </div>
         </div>
       </div>
